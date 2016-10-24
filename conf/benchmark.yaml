@@ -1,0 +1,10 @@
+controller:
+  commander: {port: 9999}
+  host: 10.25.3.98
+  job_queue: {port: 9998}
+  manager: {port: 9996}
+  num_drivers: 4
+  report_queue: {port: 9997}
+driver:
+  hosts: [10.25.2.164, 10.25.2.165, 10.25.2.167, 10.25.2.168]
+  num_workers: 16
