@@ -1,17 +1,17 @@
 workload:
-    type: constant
-    num_queries: 100
-    period: 10
-    dispatch_mode: batch  # once | batch
+    type: constant  # constant|poisson
+    num_queries: 100  # numbers
+    period: 10  # numbers
+    dispatch_mode: batch  # once|batch
     distribution:
         id: 1
-        type: powerlaw
+        type: powerlaw  # uniform|beta|normal|powerlaw|gamma
         shape: 3
-        kind: chunk  # nature | chunk
+        kind: chunk  # nature|chunk
         num_chunks: 4
-        key_file: /home/chsu6/RoxieBenchmark/benchmark/dataset/firstname_list_2000.txt
+        key_file: /home/chsu6/RoxieBenchmark/benchmark/dataset/firstname_list_2000.txt  # input query key list
     selection:
-        type: uniform
+        type: uniform  # uniform|beta|normal|powerlaw|gamma
     endpoints:
         - http://10.25.2.127:9876
         - http://10.25.2.128:9876
@@ -24,5 +24,5 @@ workload:
     applications:
         sequential_search_firstname:
             distribution_id: 1
-            query_name: sequential_search_firstname_[1-16]
-            query_key: firstname
+            query_name: sequential_search_firstname_[1-16]  # supports exact name and xx_[a-b] only
+            query_key: firstname  # currently supports only one query key

@@ -1,7 +1,21 @@
-# RoxieBenchmark
-
 ### Overview
-### Distribution generation
+**RoxieBench** is a benchmark suite for evaluating Roxie performance.
+RoxieBench is scalable to run in a distributed setting that supports multiple worker nodes.
+RoxieBench uses a centralized model, and is scalable to run in a distributed setting that supports multiple worker nodes.
+This benchmark tool is designed to evaluate the Roxie performance under diverse workloads, namely arrival patterns and query distribution types.
+
+### Workload Configuration
+* Workload distribution
+**workload.distribution** defines the query key distribution for certain Roxie applications
+* Selection of Roxie applications
+**workload.select** desines how the Roxie applicatoins are selected
+
+### Methodology to generate workload
+Given a key space with size *N* for the query key and a distribution, we devide the cumulative distribution function (CDF) to *N* equal partitions.
+Each key is assigned to the partitions with a probability.
+Then we use random number generator (uniform distribution) to select keys (now they will be drawn with different probabilities).
+This process ensures the workload generation follows a defined distribution.
+
 
 ### Required Packages this project
 * Git
